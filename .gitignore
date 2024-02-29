@@ -1,0 +1,6 @@
+*.Rproj
+.Rproj.user
+.RData
+.Rhistory
+.DS_Store
+inst/data/*.gz

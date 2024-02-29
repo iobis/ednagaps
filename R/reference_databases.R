@@ -88,5 +88,5 @@ generate_reference_species <- function(reference_databases_taxa, workspace = sys
 #' @param workspace Path to the workspace.
 #' @export
 read_reference_species <- function(workspace = system.file("data", package = "ednagaps")) {
-  read_csv(gzfile(file.path(workspace, "marker_species.csv.gz")))
+  read_csv(gzfile(file.path(workspace, "marker_species.csv.gz")), show_col_types = FALSE)
 }

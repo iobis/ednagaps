@@ -15,4 +15,5 @@ Imports:
     stringr,
     purrr,
     future,
-    furrr
+    furrr,
+    readr

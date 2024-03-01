@@ -4,3 +4,4 @@
 .Rhistory
 .DS_Store
 inst/data/*.gz
+docs

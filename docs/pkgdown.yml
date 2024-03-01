@@ -1,0 +1,10 @@
+pandoc: 3.1.9
+pkgdown: 2.0.7
+pkgdown_sha: ~
+articles:
+  global: global.html
+last_built: 2024-03-01T13:49Z
+urls:
+  reference: https://iobis.github.io/ednagaps/reference
+  article: https://iobis.github.io/ednagaps/articles
+

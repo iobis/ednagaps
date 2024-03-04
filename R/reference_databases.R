@@ -27,14 +27,14 @@ get_marker_species_list <- function(reference_database_path, marker) {
 #' Results are written to a compressed CSV file in the workspace.
 #'
 #' @export
-#' @param reference_databases_taxa A named list of reference database taxon table paths.
+#' @param reference_databases A named list of reference databases, with at least taxon table paths.
 #' @param workspace Path to the workspace.
 #' @return Output path.
-generate_reference_species <- function(reference_databases_taxa, workspace = system.file("data", package = "ednagaps")) {
+generate_reference_species <- function(reference_databases, workspace = system.file("data", package = "ednagaps")) {
 
   # marker and species names as found in reference database
 
-  reference_input_names <- purrr::map(names(reference_databases_taxa), ~get_marker_species_list(reference_databases_taxa[[.]], .), .progress = TRUE) %>%
+  reference_input_names <- purrr::map(names(reference_databases), ~get_marker_species_list(reference_databases[[.]][["taxa"]], .), .progress = TRUE) %>%
     bind_rows() %>%
     select(marker, species)
 

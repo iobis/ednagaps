@@ -92,15 +92,25 @@ by marker.</p>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://ggplot2.tidyverse.org" class="external-link">ggplot2</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://glue.tidyverse.org/" class="external-link">glue</a></span><span class="op">)</span></span></code></pre></div>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">reference_databases_taxa</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
-<span>  <span class="st">"12s_mimammal"</span> <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/12S/202311/12S_mammal_ncbi_1_50000_pcr_pga_taxa.tsv"</span>,</span>
-<span>  <span class="st">"12s_mifish"</span> <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/12S/202311/12S_mito_ncbi_1_50000_mifish_pcr_pga_taxa.tsv"</span>,</span>
-<span>  <span class="st">"12s_teleo"</span> <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/12S/202311/12S_mito_ncbi_1_50000_teleo_pcr_pga_taxa.tsv"</span>,</span>
-<span>  <span class="st">"coi"</span> <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/COI_ncbi/COI_ncbi_1_50000_pcr_pga_taxon.tsv"</span>,</span>
-<span>  <span class="st">"16s"</span> <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/16S/202311/16S_ncbi_euk_1_50000_pga_taxa.tsv"</span></span>
+<code class="sourceCode R"><span><span class="va">reference_databases</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>  <span class="st">"12s_mimammal"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    taxa <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/12S/202311/12S_mammal_ncbi_1_50000_pcr_pga_taxa.tsv"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="st">"12s_mifish"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    taxa <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/12S/202311/12S_mito_ncbi_1_50000_mifish_pcr_pga_taxa.tsv"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="st">"12s_teleo"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    taxa <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/12S/202311/12S_mito_ncbi_1_50000_teleo_pcr_pga_taxa.tsv"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="st">"coi"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    taxa <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/COI_ncbi/COI_ncbi_1_50000_pcr_pga_taxon.tsv"</span></span>
+<span>  <span class="op">)</span>,</span>
+<span>  <span class="st">"16s"</span> <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/list.html" class="external-link">list</a></span><span class="op">(</span></span>
+<span>    taxa <span class="op">=</span> <span class="st">"~/Desktop/temp/reference_databases/16S/202311/16S_ncbi_euk_1_50000_pga_taxa.tsv"</span></span>
+<span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">generate_species_lists</span><span class="op">(</span><span class="va">reference_databases_taxa</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu">generate_species_lists</span><span class="op">(</span><span class="va">reference_databases</span><span class="op">)</span></span></code></pre></div>
 <p>Then read the generated lists and add higher level taxonomic
 groups:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">

@@ -35,15 +35,25 @@ library(glue)
 ```
 
 ```{r eval=FALSE}
-reference_databases_taxa <- list(
-  "12s_mimammal" = "~/Desktop/temp/reference_databases/12S/202311/12S_mammal_ncbi_1_50000_pcr_pga_taxa.tsv",
-  "12s_mifish" = "~/Desktop/temp/reference_databases/12S/202311/12S_mito_ncbi_1_50000_mifish_pcr_pga_taxa.tsv",
-  "12s_teleo" = "~/Desktop/temp/reference_databases/12S/202311/12S_mito_ncbi_1_50000_teleo_pcr_pga_taxa.tsv",
-  "coi" = "~/Desktop/temp/reference_databases/COI_ncbi/COI_ncbi_1_50000_pcr_pga_taxon.tsv",
-  "16s" = "~/Desktop/temp/reference_databases/16S/202311/16S_ncbi_euk_1_50000_pga_taxa.tsv"
+reference_databases <- list(
+  "12s_mimammal" = list(
+    taxa = "~/Desktop/temp/reference_databases/12S/202311/12S_mammal_ncbi_1_50000_pcr_pga_taxa.tsv"
+  ),
+  "12s_mifish" = list(
+    taxa = "~/Desktop/temp/reference_databases/12S/202311/12S_mito_ncbi_1_50000_mifish_pcr_pga_taxa.tsv"
+  ),
+  "12s_teleo" = list(
+    taxa = "~/Desktop/temp/reference_databases/12S/202311/12S_mito_ncbi_1_50000_teleo_pcr_pga_taxa.tsv"
+  ),
+  "coi" = list(
+    taxa = "~/Desktop/temp/reference_databases/COI_ncbi/COI_ncbi_1_50000_pcr_pga_taxon.tsv"
+  ),
+  "16s" = list(
+    taxa = "~/Desktop/temp/reference_databases/16S/202311/16S_ncbi_euk_1_50000_pga_taxa.tsv"
+  )
 )
 
-generate_species_lists(reference_databases_taxa)
+generate_species_lists(reference_databases)
 ```
 
 Then read the generated lists and add higher level taxonomic groups:

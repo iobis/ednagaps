@@ -42,6 +42,7 @@
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/global.html">A global gap analysis for the eDNA Expeditions reference databases</a>
+    <a class="dropdown-item" href="../articles/species_identity.html">Species sequence identity in the eDNA Expeditions reference databases</a>
   </div>
 </li>
       </ul>
@@ -110,27 +111,27 @@ by marker.</p>
 <span>  <span class="op">)</span></span>
 <span><span class="op">)</span></span>
 <span></span>
-<span><span class="fu">generate_species_lists</span><span class="op">(</span><span class="va">reference_databases</span><span class="op">)</span></span></code></pre></div>
+<span><span class="fu"><a href="../reference/generate_reference_species.html">generate_reference_species</a></span><span class="op">(</span><span class="va">reference_databases</span><span class="op">)</span></span></code></pre></div>
 <p>Then read the generated lists and add higher level taxonomic
 groups:</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">reference_species</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/read_reference_species.html">read_reference_species</a></span><span class="op">(</span><span class="op">)</span></span>
 <span><span class="va">reference_species</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 114,579 × 11</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># A tibble: 125,437 × 12</span></span></span>
 <span><span class="co">#&gt;    marker       phylum   class    order family genus species isMarine isBrackish</span></span>
 <span><span class="co">#&gt;    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>        <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>    <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>  <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span>      <span style="color: #949494; font-style: italic;">&lt;dbl&gt;</span></span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 12s_mimammal Chordata Teleost… Clup… Doros… Ambl… Amblyg…        1          1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 12s_mimammal Chordata Teleost… Clup… Dussu… Duss… Dussum…        1          0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 12s_mimammal Chordata Teleost… Clup… Prist… Opis… Opisth…        1          1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 12s_mimammal Chordata Teleost… Perc… Trigl… Chel… Chelid…        1          1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 12s_mimammal Chordata Elasmob… Squa… Squat… Squa… Squati…        1          1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 12s_mimammal Chordata Teleost… Perc… Cotti… Cott… Cottus…        1          1</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 12s_mimammal Chordata Teleost… Perc… Cotti… Cott… Cottus…        0          0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 12s_mimammal Chordata Teleost… Silu… Silur… Kryp… Krypto…        0          0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 12s_mimammal Chordata Teleost… Char… Bryco… Bryc… Brycon…        0          0</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 12s_mimammal Chordata Teleost… Char… Anost… Mega… Megale…        0          0</span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 114,569 more rows</span></span></span>
-<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 2 more variables: isFreshwater &lt;dbl&gt;, isTerrestrial &lt;dbl&gt;</span></span></span></code></pre></div>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 1</span> 12s_mimammal Chordata Teleost… Perc… Serra… Cent… Centro…        1          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 2</span> 12s_mimammal Chordata <span style="color: #BB0000;">NA</span>       Test… Trion… Pelo… Pelodi…        0          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 3</span> 12s_mimammal Chordata Mammalia Arti… Bovid… Bos   Bos ta…       <span style="color: #BB0000;">NA</span>         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 4</span> 12s_mimammal Chordata Mammalia Carn… Phoci… Mona… Monach…        1         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 5</span> 12s_mimammal Chordata Mammalia Carn… Otari… Arct… Arctoc…        1         <span style="color: #BB0000;">NA</span></span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 6</span> 12s_mimammal Chordata Teleost… Cent… Kypho… Kyph… Kyphos…        1          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 7</span> 12s_mimammal Chordata Teleost… Cent… Kypho… Gire… Girell…        1          0</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 8</span> 12s_mimammal Chordata Teleost… Cypr… Cypri… Ache… Acheil…        0          1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;"> 9</span> 12s_mimammal Chordata Teleost… Cypr… Cypri… Ache… Acheil…        0          1</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">10</span> 12s_mimammal Chordata Teleost… Perc… Anarh… Anar… Anarrh…        1          0</span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 125,427 more rows</span></span></span>
+<span><span class="co">#&gt; <span style="color: #949494;"># ℹ 3 more variables: isFreshwater &lt;dbl&gt;, isTerrestrial &lt;dbl&gt;, input &lt;chr&gt;</span></span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="occurrence-data">Occurrence data<a class="anchor" aria-label="anchor" href="#occurrence-data"></a>
@@ -236,9 +237,9 @@ calculate completeness by group and cell:</p>
 <span><span class="co">#&gt;   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>   <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>         <span style="color: #949494; font-style: italic;">&lt;int&gt;</span>                  <span style="color: #949494; font-style: italic;">&lt;int&gt;</span> <span style="color: #949494; font-style: italic;">&lt;chr&gt;</span>                 <span style="color: #949494; font-style: italic;">&lt;int&gt;</span></span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">1</span> 82000f… fish             44                     39 12s_m…                   32</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">2</span> 82000f… fish             44                     39 12s_m…                   32</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 82000f… fish             44                     39 12s_t…                   32</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">3</span> 82000f… fish             44                     39 12s_t…                   33</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">4</span> 82000f… fish             44                     39 16s                      31</span></span>
-<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 82000f… fish             44                     39 coi                      37</span></span>
+<span><span class="co">#&gt; <span style="color: #BCBCBC;">5</span> 82000f… fish             44                     39 coi                      39</span></span>
 <span><span class="co">#&gt; <span style="color: #BCBCBC;">6</span> 82000f… fish             44                     39 <span style="color: #BB0000;">NA</span>                        5</span></span>
 <span><span class="co">#&gt; <span style="color: #949494;"># ℹ abbreviated name: ¹​group_species_in_reference</span></span></span></code></pre></div>
 <div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">

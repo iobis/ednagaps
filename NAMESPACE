@@ -3,6 +3,8 @@
 export(add_groups)
 export(generate_reference_species)
 export(groups)
+export(read_input_taxonomy)
+export(read_reference_databases)
 export(read_reference_species)
 import(dplyr)
 import(furrr)

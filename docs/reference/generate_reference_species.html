@@ -29,6 +29,7 @@ Results are written to a compressed CSV file in the workspace."><!-- mathjax -->
   <a href="#" class="nav-link dropdown-toggle" data-bs-toggle="dropdown" role="button" aria-expanded="false" aria-haspopup="true" id="dropdown-articles">Articles</a>
   <div class="dropdown-menu" aria-labelledby="dropdown-articles">
     <a class="dropdown-item" href="../articles/global.html">A global gap analysis for the eDNA Expeditions reference databases</a>
+    <a class="dropdown-item" href="../articles/species_identity.html">Species sequence identity in the eDNA Expeditions reference databases</a>
   </div>
 </li>
       </ul><form class="form-inline my-2 my-lg-0" role="search">
@@ -55,15 +56,15 @@ Results are written to a compressed CSV file in the workspace.</p>
     <div class="section level2">
     <h2 id="ref-usage">Usage<a class="anchor" aria-label="anchor" href="#ref-usage"></a></h2>
     <div class="sourceCode"><pre class="sourceCode r"><code><span><span class="fu">generate_reference_species</span><span class="op">(</span></span>
-<span>  <span class="va">reference_databases_taxa</span>,</span>
+<span>  <span class="va">reference_databases</span>,</span>
 <span>  workspace <span class="op">=</span> <span class="fu"><a href="https://rdrr.io/r/base/system.file.html" class="external-link">system.file</a></span><span class="op">(</span><span class="st">"data"</span>, package <span class="op">=</span> <span class="st">"ednagaps"</span><span class="op">)</span></span>
 <span><span class="op">)</span></span></code></pre></div>
     </div>
 
     <div class="section level2">
     <h2 id="arguments">Arguments<a class="anchor" aria-label="anchor" href="#arguments"></a></h2>
-    <dl><dt>reference_databases_taxa</dt>
-<dd><p>A named list of reference database taxon table paths.</p></dd>
+    <dl><dt>reference_databases</dt>
+<dd><p>A named list of reference databases, with at least taxon table paths.</p></dd>
 
 
 <dt>workspace</dt>

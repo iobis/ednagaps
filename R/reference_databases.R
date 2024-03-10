@@ -1,3 +1,6 @@
+reference_species_filename <- "reference_species.csv.gz"
+input_taxonomy_filename <- "input_taxonomy.csv.gz"
+
 #' Match names with WoRMS.
 #'
 #' @param x A character vector of names.
@@ -21,6 +24,22 @@ get_marker_species_list <- function(reference_database_path, marker) {
     mutate(species = str_replace_all(species, "_", " ")) %>%
     mutate(marker = marker)
   return(reference_database)
+}
+
+read_reference_database <- function(reference_database_path, marker) {
+  ncol <- max(count.fields(reference_database_path, sep = "\t"), na.rm = TRUE)
+  reference_database <- read.table(reference_database_path, sep = "\t", header = FALSE, col.names = 1:ncol, fill = TRUE, quote = "\"", na.strings = c("", "nan"))[,1:10] %>%
+    setNames(c("seqid", "taxid", "kingdom", "phylum", "class", "order", "family", "genus", "species", "sequence")) %>%
+    filter(species != "Homo_sapiens") %>%
+    mutate(species = str_replace_all(species, "_", " ")) %>%
+    mutate(marker = marker)
+  return(reference_database)
+}
+
+#' @export
+read_reference_databases <- function(reference_databases) {
+  purrr::map(names(reference_databases), ~read_reference_database(reference_databases[[.]][["taxa"]], .), .progress = TRUE) %>%
+    bind_rows()
 }
 
 #' Create species lists with WoRMS accepted names for a set of reference databases.
@@ -71,16 +90,19 @@ generate_reference_species <- function(reference_databases, workspace = system.f
     ungroup() %>%
     left_join(valid_taxa, by = c("valid_AphiaID" = "AphiaID"))
 
+  input_taxonomy_path <- file.path(workspace, input_taxonomy_filename)
+  write.csv(input_valid_taxonomy, file = gzfile(input_taxonomy_path), row.names = FALSE, na = "")
+
   # marker and valid taxonomy
 
   marker_species <- reference_input_names %>%
     select(marker, species) %>%
-    left_join(input_valid_taxonomy, by = c("species" = "input")) %>%
+    left_join(input_valid_taxonomy, by = c("species" = "input"), keep = TRUE) %>%
     filter(!is.na(scientificname) & rank == "Species") %>%
-    select(marker, phylum, class, order, family, genus, species = scientificname, isMarine, isBrackish, isFreshwater, isTerrestrial)
+    select(marker, phylum, class, order, family, genus, species = scientificname, isMarine, isBrackish, isFreshwater, isTerrestrial, input)
 
-  output_path <- file.path(workspace, "marker_species.csv.gz")
-  write.csv(marker_species, file = gzfile(output_path), row.names = FALSE, na = "")
+  reference_species_path <- file.path(workspace, reference_species_filename)
+  write.csv(marker_species, file = gzfile(reference_species_path), row.names = FALSE, na = "")
 }
 
 #' Read species lists with WoRMS accepted names from the compressed CSV file in the workspace.
@@ -88,5 +110,10 @@ generate_reference_species <- function(reference_databases, workspace = system.f
 #' @param workspace Path to the workspace.
 #' @export
 read_reference_species <- function(workspace = system.file("data", package = "ednagaps")) {
-  read_csv(gzfile(file.path(workspace, "marker_species.csv.gz")), show_col_types = FALSE)
+  read_csv(gzfile(file.path(workspace, reference_species_filename)), show_col_types = FALSE)
+}
+
+#' @export
+read_input_taxonomy <- function(workspace = system.file("data", package = "ednagaps")) {
+  read_csv(gzfile(file.path(workspace, input_taxonomy_filename)), show_col_types = FALSE)
 }

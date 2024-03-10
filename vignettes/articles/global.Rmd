@@ -53,7 +53,7 @@ reference_databases <- list(
   )
 )
 
-generate_species_lists(reference_databases)
+generate_reference_species(reference_databases)
 ```
 
 Then read the generated lists and add higher level taxonomic groups:

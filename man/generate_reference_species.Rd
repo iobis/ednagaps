@@ -6,12 +6,12 @@
 Results are written to a compressed CSV file in the workspace.}
 \usage{
 generate_reference_species(
-  reference_databases_taxa,
+  reference_databases,
   workspace = system.file("data", package = "ednagaps")
 )
 }
 \arguments{
-\item{reference_databases_taxa}{A named list of reference database taxon table paths.}
+\item{reference_databases}{A named list of reference databases, with at least taxon table paths.}
 
 \item{workspace}{Path to the workspace.}
 }

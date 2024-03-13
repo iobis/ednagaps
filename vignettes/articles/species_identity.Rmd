@@ -27,7 +27,7 @@ library(purrr)
 
 ## Reference databases
 
-Reference database creation is documented at <https://github.com/iobis/eDNA_trial_data>, and reference databases were downloaded to `reference_databases` from the LifeWatch server using:
+Reference database creation is documented at <https://github.com/iobis/edna-reference-databases>, and reference databases were downloaded to `reference_databases` from the LifeWatch server using:
 
 ```
 rsync -avrm --partial --progress --include='*/' --include='*pga_tax.tsv' --include='*pga_taxa.tsv' --include='*pga_taxon.tsv' --exclude='*' ubuntu@lfw-ds001-i035.i.lifewatch.dev:/home/ubuntu/data/databases/ ./reference_databases
